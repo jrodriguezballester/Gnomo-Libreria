@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { ListarautoresComponent } from './autor/listarautores/listarautores.component';
 import { AddautorComponent } from './autor/addautor/addautor.component';
+import { AddlibroComponent } from './libro/addlibro/addlibro.component';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { AddautorComponent } from './autor/addautor/addautor.component';
     ListarComponent,
     ListarautoresComponent,
     AddautorComponent,
+    AddlibroComponent,
 
   ],
   imports: [

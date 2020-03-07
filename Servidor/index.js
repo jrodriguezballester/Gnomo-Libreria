@@ -56,7 +56,7 @@ app.get('/api/libros/:id', (req, res) => {
 
 //add new book
 app.post('/api/libros', (req, res) => {
-    let data = { name: req.body.name, isbn: req.body.isbn, id_autor: req.body.id_autor };
+    let data = { name: req.body.title, isbn: req.body.isbn, id_autor: req.body.id_autor };
     let sql = "INSERT INTO book SET ?";
     let query = conn.query(sql, data, (err, results) => {
         if (err) throw err;

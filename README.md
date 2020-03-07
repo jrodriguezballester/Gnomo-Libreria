@@ -3,8 +3,6 @@
 ## Despues de clonar
 
 - npm install
-- cd Servidor
-  - npm install
 
 ## Instrucciones para la aplicacion
 

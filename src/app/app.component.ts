@@ -17,4 +17,7 @@ export class AppComponent {
   newAuthor(){
     this.router.navigate(['agregarAutores']);
   }
+  newBook() {
+    this.router.navigate(['agregarLibro']);
+  }
 }

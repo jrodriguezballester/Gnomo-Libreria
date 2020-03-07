@@ -15,15 +15,18 @@ export class ListarautoresComponent implements OnInit {
     this.getAutores();
   }
   getAutores() {
-    this.authorService.getAll().subscribe(
-      result => {
-        console.log(result.response);
-        this.autores = result.response;
-      },
-      error => {
-        console.log(error);
-      }
-    );
+    // this.authorService.getAll().subscribe(
+    //   result => {
+    //     console.log(result.response);
+    //     this.autores = result.response;
+    //   },
+    //   error => {
+    //     console.log(error);
+    //   }
+    // );
+
+    this.autores = this.authorService.getAll();
+
   }
   addAuthor() {
 

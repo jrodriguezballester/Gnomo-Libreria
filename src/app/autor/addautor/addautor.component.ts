@@ -23,16 +23,14 @@ export class AddautorComponent implements OnInit {
       first_name: this.autor.first_name,
       last_name: this.autor.last_name
     };
-    console.log(`data: ${data.first_name}`);
-    this.authorService.createAuthor(data).subscribe(response => {
-      console.log(response.results);
-      alert('Agregado');
+    this.authorService.createAuthor(data).subscribe(results => {
+      alert('Autor Agregado');
+      this.router.navigate(['listarAutores']);
     }, error => {
-      // console.log(response.results)
-
-      alert('NO Agregado');
+        alert('NO Agregado');
+        this.router.navigate(['/']);
     });
 
-    this.router.navigate(['listarAutores']);
+
   }
 }

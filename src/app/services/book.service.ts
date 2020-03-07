@@ -7,7 +7,7 @@ const baseUrl = 'http://localhost:3000/api';
 })
 export class BookService {
   books: any;
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
   getAll() {
     return this.http.get<any>(baseUrl + '/libros');
   }
@@ -15,5 +15,7 @@ export class BookService {
     console.log(`id ${id}`);
     return this.http.get<any>(baseUrl + '/libros/' + id);
   }
-
+  createBook(data) {
+    return this.http.post<any>(baseUrl + '/libros', data);
+  }
 }
