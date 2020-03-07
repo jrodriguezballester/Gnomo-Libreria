@@ -5,14 +5,15 @@ const mysql = require('mysql');
 
 // parse application/json
 // app.use(bodyParser.json());
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Headers', 'Authorizacion,X-API-KEY,Origin,X-Requested-With,Content-Type,Accept,Access-Control-Allow-Request-Method');
-    res.header('Access-Control-Allow-Methods', 'GET,POST,OPTIONS,PUT,PATCH,DELETE');
-    res.header('Allow', 'GET,POST,OPTIONS,PUT,PATCH,DELETE');
-    next();
+app.use(bodyParser.json(),
+    (req, res, next) => {
+        res.header('Access-Control-Allow-Origin', '*');
+        res.header('Access-Control-Allow-Headers', 'Authorizacion,X-API-KEY,Origin,X-Requested-With,Content-Type,Accept,Access-Control-Allow-Request-Method');
+        res.header('Access-Control-Allow-Methods', 'GET,POST,OPTIONS,PUT,PATCH,DELETE');
+        res.header('Allow', 'GET,POST,OPTIONS,PUT,PATCH,DELETE');
+        next();
 
-});
+    });
 
 //create database connection
 const conn = mysql.createConnection({
@@ -106,9 +107,7 @@ app.get('/api/autor/:id', (req, res) => {
 
 //add new author
 app.post('/api/autor', (req, res) => {
-    //  let data = { first_name: req.body.first_name, last_name: req.body.last_name };
-    console.log(req + "*******");
-    let data = { first_name: req, last_name: req };
+    let data = { first_name: req.body.first_name, last_name: req.body.last_name };
 
     let sql = "INSERT INTO author SET ?";
     let query = conn.query(sql, data, (err, results) => {
