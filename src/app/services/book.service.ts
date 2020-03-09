@@ -18,5 +18,17 @@ export class BookService {
   createBook(data) {
     return this.http.post<any>(baseUrl + "/libros", data);
   }
-  updateBook(name, isbn, id_autor, id) {}
+  updateBook(data) {
+    console.log(
+      "llega aqui " +
+        data.id +
+        " " +
+        data.name +
+        " " +
+        data.isbn +
+        " " +
+        data.id_autor
+    );
+    return this.http.patch<any>(baseUrl + "/libros/" + data.id, data);
+  }
 }

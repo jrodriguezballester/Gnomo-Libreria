@@ -24,8 +24,21 @@ export class EditarlibroComponent implements OnInit {
     console.log(this.book);
   }
   //actualizarLibro(name, isbn, id_autor, book.id) {
-  actualizarLibro(name, isbn, id_autor, id) {
-    this.bookService.updateBook(name, isbn, id_autor, id);
+  actualizarLibro() {
+    const data = {
+      name: this.book.name,
+      isbn: this.book.isbn,
+      id: this.book.id,
+      id_autor: this.book.id_autor
+    };
+    this.bookService.updateBook(data).subscribe(
+      results => {
+        alert("libro updateado");
+      },
+      error => {
+        alert("NO updateado" + error);
+      }
+    );
   }
   vote(agreed: boolean) {
     this.voted.emit(agreed);
