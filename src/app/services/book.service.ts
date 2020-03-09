@@ -31,4 +31,7 @@ export class BookService {
     );
     return this.http.patch<any>(baseUrl + "/libros/" + data.id, data);
   }
+  deleteBook(id) {
+    return this.http.delete<any>(baseUrl + "/libros/" + id);
+  }
 }

@@ -34,32 +34,24 @@ export class ListarComponent implements OnInit {
       }
     );
   }
-  // // getBook(book) {
-  // //   console.log("libro");
-  // //   console.log(book);
 
-  // //   this.bookService.getBookId(book.id).subscribe(
-  // //     result => {
-  // //       // console.log('getBookId ' + book.id);
-  // //       // // console.log(result.status);
-  // //       // console.log("sql"+result.sql);
-  // //       // console.log(result.response);
-  // //       this.book = result.response;
-  // //       console.log("libro");
-  // //       console.log(this.book);
-  // //       this.router.navigate(["editarLibro"], this.book);
-  // //     },
-  // //     error => {
-  // //       console.log(error);
-  // //     }
-  // //   );
-  // // }
   getBook(book) {
     this.mostrar = true;
     this.libroSeleccionado = book;
     console.log(this.libroSeleccionado);
   }
-  eliminar(book) {}
+  eliminar(book) {
+    console.log(book.id);
+    this.bookService.deleteBook(book.id).subscribe(
+      result => {
+        alert("libro borrado");
+      },
+      error => {
+        alert("libro NO borrado");
+        console.log(error);
+      }
+    );
+  }
   onVoted(agreed: boolean) {
     this.mostrar = agreed;
   }
