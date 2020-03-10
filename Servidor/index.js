@@ -126,6 +126,7 @@ app.post("/api/autor", (req, res) => {
   let sql = "INSERT INTO author SET ?";
   let query = conn.query(sql, data, (err, results) => {
     if (err) throw err;
+    // console.log("----" + results.insertId);
     res.send(JSON.stringify({ status: 200, error: null, response: results }));
   });
 });
@@ -160,3 +161,6 @@ app.delete("/api/autor/:id", (req, res) => {
 app.listen(3000, () => {
   console.log("Server started on port 3000...");
 });
+
+// connection.query('INSERT INTO posts SET ?', { title: 'test' }, function (err, result) { if (err) throw err; console.log(result.insertId); });
+// result.insertId
